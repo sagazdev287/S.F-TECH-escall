@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SF B2C TECH - Design</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc);
+      background-size: 600% 600%;
+      animation: bgMove 20s ease infinite;
+      color: white;
+      perspective: 1000px;
+    }
+
+    @keyframes bgMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      text-align: center;
+      transform-style: preserve-3d;
+      animation: girarLogo 12s infinite linear;
+    }
+
+    @keyframes girarLogo {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    header img {
+      max-width: 150px;
+      border-radius: 10px;
+    }
+
+    .container {
+      padding: 20px;
+      transform: rotateX(10deg);
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #00ffe7;
+      transform: rotateY(-10deg);
+      box-shadow: 0 0 15px #00ffe7, 0 0 30px #ff00cc;
+      transition: transform 0.5s, text-shadow 0.5s, box-shadow 0.5s;
+    }
+
+    .box:hover {
+      transform: rotateY(0deg) scale(1.03);
+      text-shadow: 0 0 12px #00ffe7, 0 0 24px #ff00cc;
+      box-shadow: 0 0 25px #ff00cc, 0 0 50px #00ffe7;
+    }
+
+    input, button, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border: 2px solid #ff00cc;
+      border-radius: 6px;
+      background: #1a1a1a;
+      color: #00ffe7;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ffe7, 0 0 10px #ff00cc;
+      box-shadow: 0 0 10px #ff00cc inset;
+    }
+
+    button {
+      background-color: #00ffe7;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffe7, 0 0 20px #ff00cc;
+    }
+
+    #note-block {
+      min-height: 200px;
+    }
+
+    #areaFuncionario, #areaGerente {
+      display: none;
+    }
+
+    h1, h2, p, label, ul, li {
+      color: #ffffff;
+      text-shadow: 1px 1px 5px #00ffe7, 0 0 10px #ff00cc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="aaaa85a58a5.webp" alt="Logo SF B2C TECH">
+    <h1>SF B2C TECH</h1>
+    <p>Design e inovação em um só lugar!</p>
+  </header>
+
+  <div class="container">
+    <section class="box">
+      <h2>Acesso de Funcionário</h2>
+      <input type="password" id="senhaFuncionario" placeholder="Digite a senha de funcionário">
+      <button onclick="acessarFuncionario()">Entrar</button>
+    </section>
+
+    <section class="box">
+      <h2>Acesso de Gerente</h2>
+      <input type="password" id="senhaGerente" placeholder="Digite a senha do gerente">
+      <button onclick="acessarGerente()">Entrar</button>
+    </section>
+
+    <section class="box" id="areaFuncionario">
+      <h2>Escala de Trabalho</h2>
+      <ul>
+        <li>João - Segunda a Quarta - Atendimento ao cliente</li>
+        <li>Maria - Quinta a Sábado - Criação de artes e redes sociais</li>
+        <li>Carlos - Domingo e Segunda - Suporte técnico e revisão</li>
+      </ul>
+
+      <h3>Informações Importantes</h3>
+      <ul>
+        <li>Checar o e-mail regularmente.</li>
+        <li>Participar das reuniões semanais de planejamento.</li>
+        <li>Atualizar status de tarefas no sistema.</li>
+      </ul>
+    </section>
+
+    <section class="box" id="areaGerente">
+      <h2>Bloco de Anotações do Gerente</h2>
+      <textarea id="note-block" placeholder="Digite aqui suas anotações..."></textarea>
+      <button onclick="salvarNotas()">Salvar Notas</button>
+      <p id="statusNotas"></p>
+
+      <h2>Escala Completa da Equipe</h2>
+      <ul>
+        <li>Segunda:
+          <ul>
+            <li>João - Atendimento</li>
+            <li>Carlos - Suporte técnico</li>
+          </ul>
+        </li>
+        <li>Terça:
+          <ul>
+            <li>João - Atendimento</li>
+          </ul>
+        </li>
+        <li>Quarta:
+          <ul>
+            <li>João - Atendimento</li>
+          </ul>
+        </li>
+        <li>Quinta:
+          <ul>
+            <li>Maria - Criação de conteúdo</li>
+          </ul>
+        </li>
+        <li>Sexta:
+          <ul>
+            <li>Maria - Edição de vídeos</li>
+          </ul>
+        </li>
+        <li>Sábado:
+          <ul>
+            <li>Maria - Redes sociais</li>
+          </ul>
+        </li>
+        <li>Domingo:
+          <ul>
+            <li>Carlos - Revisão e suporte</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const senhaGerenteCorreta = "admin2025";
+    const senhaFuncionarioCorreta = "func2025";
+
+    function acessarFuncionario() {
+      const senha = document.getElementById('senhaFuncionario').value;
+      if (senha === senhaFuncionarioCorreta) {
+        document.getElementById('areaFuncionario').style.display = 'block';
+      } else {
+        alert('Senha de funcionário incorreta.');
+      }
+    }
+
+    function acessarGerente() {
+      const senha = document.getElementById('senhaGerente').value;
+      if (senha === senhaGerenteCorreta) {
+        document.getElementById('areaGerente').style.display = 'block';
+      } else {
+        alert('Senha de gerente incorreta.');
+      }
+    }
+
+    function salvarNotas() {
+      const notas = document.getElementById('note-block').value;
+      localStorage.setItem('notasGerente', notas);
+      document.getElementById('statusNotas').textContent = "Notas salvas com sucesso!";
+    }
+
+    window.onload = () => {
+      const notas = localStorage.getItem('notasGerente');
+      if (notas) document.getElementById('note-block').value = notas;
+    };
+  </script>
+</body>
+</html>
